@@ -1,0 +1,9 @@
+.container {
+  background-image: url("src/assets/bed 2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgb(129, 153, 125);
+  position: relative;
+  width: 1280px;
+  height: 720px;
+}

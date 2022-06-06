@@ -1,58 +1,60 @@
 .container {
   border: 3px solid black;
 
-  width: 480px;
+  width: 165px;
   display: grid;
-  grid-template-columns: 200px 80px 200px;
-  grid-template-rows: 200px 140px 200px;
+  grid-template-columns: 75px 15px 75px;
+  grid-template-rows: 75px 60px 75px;
   grid-template-areas:
     "bed1 empty-bit bed2"
     "bath1 empty-bit bath2"
-    "living empty-bit kitchen";
+    "living living kitchen";
 }
 .living {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: grey;
+  background-color: rgba(230, 223, 223, 0.913);
   grid-area: living;
   border-right: none;
 }
 .empty--bit {
-  background-color: grey;
+  background-color: rgba(230, 223, 223, 0.913);
   grid-area: empty-bit;
   border: none;
 }
 .bed1 {
-  background-color: aquamarine;
+  background-color: rgb(161, 97, 167);
   grid-area: bed1;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 .bed2 {
-  background-color: green;
+  background-color: rgb(129, 153, 125);
   grid-area: bed2;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 .bath1 {
-  background-color: pink;
+  background-color: rgb(215, 148, 148);
   grid-area: bath1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .bath2 {
-  background-color: blue;
+  background-color: rgb(130, 163, 198);
   grid-area: bath2;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .kitchen {
-  background-color: yellow;
+  background-color: rgb(238, 238, 181);
   grid-area: kitchen;
   display: flex;
   align-items: center;

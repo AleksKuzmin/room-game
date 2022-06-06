@@ -1,0 +1,9 @@
+.container {
+  background-image: url("src/assets/kitchen.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgb(238, 238, 181);
+  position: relative;
+  width: 1280px;
+  height: 720px;
+}

@@ -1,0 +1,9 @@
+.container {
+  background-image: url("src/assets/bath 2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgb(130, 163, 198);
+  position: relative;
+  width: 1280px;
+  height: 720px;
+}
