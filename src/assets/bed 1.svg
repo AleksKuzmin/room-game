@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="869" viewBox="0 0 1920 869">
+  <defs>
+    <clipPath id="clip-bed_1">
+      <rect width="1920" height="869"/>
+    </clipPath>
+  </defs>
+  <g id="bed_1" data-name="bed 1" clip-path="url(#clip-bed_1)">
+    <g id="Group_19" data-name="Group 19" transform="translate(443.266 524.637)">
+      <g id="Group_17" data-name="Group 17" transform="translate(12.106)">
+        <rect id="Rectangle_47" data-name="Rectangle 47" width="77.646" height="12.26" transform="translate(28.606 224.764)" fill="#2a2a2a"/>
+        <rect id="Rectangle_48" data-name="Rectangle 48" width="17.709" height="179.811" transform="translate(58.575 51.764)" fill="#2a2a2a"/>
+        <path id="Path_4" data-name="Path 4" d="M33.076,0h67.306c6.944,0,12.574,4.939,12.574,11.032l22.21,114.919c0,6.093-5.629,11.032-12.574,11.032H12.574C5.629,136.983,0,132.044,0,125.951L20.5,11.032C20.5,4.939,26.132,0,33.076,0Z" transform="translate(0)" fill="#f8f8f8"/>
+      </g>
+      <g id="Group_18" data-name="Group 18" transform="translate(0 236.934)">
+        <path id="Rectangle_62" data-name="Rectangle 62" d="M20,0H139.641a20,20,0,0,1,20,20V67.217a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(0 0)" fill="#686868"/>
+        <rect id="Rectangle_63" data-name="Rectangle 63" width="32.408" height="93.624" transform="translate(32.408 110.429) rotate(180)" fill="#686868"/>
+        <rect id="Rectangle_64" data-name="Rectangle 64" width="32.408" height="93.624" transform="translate(159.641 110.429) rotate(180)" fill="#686868"/>
+        <path id="Rectangle_65" data-name="Rectangle 65" d="M20,0h88.433a20,20,0,0,1,20,20V76.82a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(14.404 13.203)" fill="#4a4a4a"/>
+        <g id="Ellipse_12" data-name="Ellipse 12" transform="translate(69.618 22.806)" fill="#ffec8b" stroke="#707070" stroke-width="1">
+          <ellipse cx="10.203" cy="10.203" rx="10.203" ry="10.203" stroke="none"/>
+          <ellipse cx="10.203" cy="10.203" rx="9.703" ry="9.703" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="Group_21" data-name="Group 21" transform="translate(625.713 628.337)">
+      <g id="Group_14" data-name="Group 14" transform="translate(-0.001 0)">
+        <rect id="Rectangle_49" data-name="Rectangle 49" width="668.573" height="87.623" rx="18" transform="translate(0 146.438)" fill="#5e5c51"/>
+        <path id="Rectangle_50" data-name="Rectangle 50" d="M0,0H597.755a0,0,0,0,1,0,0V7.407a19,19,0,0,1-19,19H19a19,19,0,0,1-19-19V0A0,0,0,0,1,0,0Z" transform="translate(36.009 217.256)" fill="#857d5c"/>
+        <rect id="Rectangle_55" data-name="Rectangle 55" width="597.755" height="190.849" rx="18" transform="translate(36.009)" fill="#857d5c"/>
+        <rect id="Rectangle_54" data-name="Rectangle 54" width="668.573" height="85.222" rx="18" transform="translate(0 132.034)" fill="#948a63"/>
+      </g>
+      <rect id="Rectangle_66" data-name="Rectangle 66" width="590.553" height="12.003" rx="2" transform="translate(38.409 122.432)" fill="#fff"/>
+      <rect id="Rectangle_67" data-name="Rectangle 67" width="218.457" height="18.005" rx="5" transform="translate(62.416 104.427)" fill="#eee"/>
+      <rect id="Rectangle_68" data-name="Rectangle 68" width="218.457" height="18.005" rx="5" transform="translate(384.1 104.427)" fill="#eee"/>
+    </g>
+    <g id="Group_22" data-name="Group 22" transform="translate(1318.293 524.637)">
+      <g id="Group_17-2" data-name="Group 17" transform="translate(11.617)">
+        <rect id="Rectangle_47-2" data-name="Rectangle 47" width="77.646" height="12.26" transform="translate(28.606 224.764)" fill="#2a2a2a"/>
+        <rect id="Rectangle_48-2" data-name="Rectangle 48" width="17.709" height="179.811" transform="translate(58.575 51.764)" fill="#2a2a2a"/>
+        <path id="Path_4-2" data-name="Path 4" d="M33.076,0h67.306c6.944,0,12.574,4.939,12.574,11.032l22.21,114.919c0,6.093-5.629,11.032-12.574,11.032H12.574C5.629,136.983,0,132.044,0,125.951L20.5,11.032C20.5,4.939,26.132,0,33.076,0Z" transform="translate(0)" fill="#f8f8f8"/>
+      </g>
+      <g id="Group_18-2" data-name="Group 18" transform="translate(0 236.934)">
+        <path id="Rectangle_62-2" data-name="Rectangle 62" d="M20,0H138.441a20,20,0,0,1,20,20V67.217a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(0 0)" fill="#686868"/>
+        <rect id="Rectangle_63-2" data-name="Rectangle 63" width="32.408" height="93.624" transform="translate(32.408 110.429) rotate(180)" fill="#686868"/>
+        <rect id="Rectangle_64-2" data-name="Rectangle 64" width="32.408" height="93.624" transform="translate(158.441 110.429) rotate(180)" fill="#686868"/>
+        <path id="Rectangle_65-2" data-name="Rectangle 65" d="M20,0h88.433a20,20,0,0,1,20,20V76.82a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(14.404 13.203)" fill="#4a4a4a"/>
+        <g id="Ellipse_12-2" data-name="Ellipse 12" transform="translate(68.418 22.806)" fill="#ffec8b" stroke="#707070" stroke-width="1">
+          <ellipse cx="10.203" cy="10.203" rx="10.203" ry="10.203" stroke="none"/>
+          <ellipse cx="10.203" cy="10.203" rx="9.703" ry="9.703" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="Rectangle_92" data-name="Rectangle 92" fill="none" stroke="rgba(252,252,252,0.01)" stroke-width="1">
+      <rect width="1920" height="869" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1919" height="868" fill="none"/>
+    </g>
+  </g>
+</svg>

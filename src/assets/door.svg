@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="869" viewBox="0 0 1920 869">
+  <defs>
+    <clipPath id="clip-door">
+      <rect width="1920" height="869"/>
+    </clipPath>
+  </defs>
+  <g id="door" clip-path="url(#clip-door)">
+    <g id="Group_1" data-name="Group 1">
+      <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(783 233)" fill="#260f00" stroke="#000" stroke-width="20">
+        <path d="M155,0h0A155,155,0,0,1,310,155V636a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V155A155,155,0,0,1,155,0Z" stroke="none"/>
+        <path d="M155,10h0A145,145,0,0,1,300,155V618.368A7.632,7.632,0,0,1,292.368,626H17.632A7.632,7.632,0,0,1,10,618.368V155A145,145,0,0,1,155,10Z" fill="none"/>
+      </g>
+      <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(825 610)" fill="#fd0" stroke="#707070" stroke-width="1">
+        <circle cx="17" cy="17" r="17" stroke="none"/>
+        <circle cx="17" cy="17" r="16.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Rectangle_92" data-name="Rectangle 92" fill="none" stroke="rgba(252,252,252,0.01)" stroke-width="1">
+      <rect width="1920" height="869" stroke="none"/>
+      <rect x="0.5" y="0.5" width="1919" height="868" fill="none"/>
+    </g>
+  </g>
+</svg>
