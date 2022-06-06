@@ -1,0 +1,60 @@
+.container {
+  border: 3px solid black;
+
+  width: 480px;
+  display: grid;
+  grid-template-columns: 200px 80px 200px;
+  grid-template-rows: 200px 140px 200px;
+  grid-template-areas:
+    "bed1 empty-bit bed2"
+    "bath1 empty-bit bath2"
+    "living empty-bit kitchen";
+}
+.living {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: grey;
+  grid-area: living;
+  border-right: none;
+}
+.empty--bit {
+  background-color: grey;
+  grid-area: empty-bit;
+  border: none;
+}
+.bed1 {
+  background-color: aquamarine;
+  grid-area: bed1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bed2 {
+  background-color: green;
+  grid-area: bed2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bath1 {
+  background-color: pink;
+  grid-area: bath1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bath2 {
+  background-color: blue;
+  grid-area: bath2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kitchen {
+  background-color: yellow;
+  grid-area: kitchen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
