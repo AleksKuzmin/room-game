@@ -10,7 +10,7 @@ import { UtilityService } from '../utility.service';
 })
 export class LivingAreaComponent implements OnInit {
   color!: string;
-  token: string = 'kitchen';
+  token: string = 'bedroom1';
   isButtonClicked: boolean = false;
   alerts: string[] = [];
   constructor(

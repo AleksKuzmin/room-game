@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { UtilityService } from './utility.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   userTokens: string[] = [];
-  currentToken!: string;
-  constructor() {}
 
-  verifyToken(): any {
-    this.userTokens.some((v) => {
-      console.log(this.currentToken, v);
-    });
+  constructor(private utilityService: UtilityService) {}
+
+  verifyToken(currentToken: string): any {
+    for (let token of this.userTokens) {
+      if (token === currentToken) return true;
+    }
+    this.utilityService.lockedDoorColor(currentToken);
+    console.log(currentToken + 'from auth');
+
     return false;
   }
 }

@@ -7,14 +7,6 @@
     rgba(121, 18, 9, 1) 54%,
     rgba(231, 35, 18, 1) 75%
   );
-  background: rgb(52, 147, 204);
-  background: linear-gradient(
-    90deg,
-    rgba(52, 147, 204, 1) 8%,
-    rgba(9, 24, 121, 1) 35%,
-    rgba(121, 18, 9, 1) 54%,
-    rgba(231, 35, 18, 1) 75%
-  );
 
   width: 400px;
   height: 30px;

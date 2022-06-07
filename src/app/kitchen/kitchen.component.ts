@@ -8,19 +8,32 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./kitchen.component.css'],
 })
 export class KitchenComponent implements OnInit {
-  kitchenToken!: string;
+  color!: string;
+  token: string = 'bedroom2';
+  isButtonClicked: boolean = false;
+  alerts: string[] = [];
   constructor(
-    private utilityService: UtilityService,
-    private authService: AuthService
+    private _utilityService: UtilityService,
+    private _authService: AuthService
   ) {}
 
-  getToken() {
-    this.kitchenToken = this.utilityService.tokens[1];
+  getColors() {
+    this.color = this._utilityService.colors[1];
   }
-  checkToken() {
-    this.authService.currentToken = this.kitchenToken;
+  getAlerts() {
+    this.alerts = this._utilityService.keyAlerts;
+  }
+  random_alert() {
+    return alert(this.alerts[Math.floor(Math.random() * this.alerts.length)]);
+  }
+  buttonClick() {
+    this.random_alert();
+    this._authService.userTokens.push(this.token);
+
+    this.isButtonClicked = true;
   }
   ngOnInit(): void {
-    this.getToken();
+    this.getColors();
+    this.getAlerts();
   }
 }

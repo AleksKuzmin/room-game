@@ -10,13 +10,18 @@ import {
 import { Observable } from 'rxjs';
 
 import { AuthService } from './auth.service';
+import { UtilityService } from './utility.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   status = false;
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private utilityService: UtilityService
+  ) {}
   canActivate(
     _route: ActivatedRouteSnapshot,
     _state: RouterStateSnapshot
@@ -25,13 +30,15 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (this.authService.verifyToken()) {
+    const currentToken = _route.data['token'];
+
+    if (this.authService.verifyToken(currentToken)) {
       this.status = true;
-      return true;
     } else {
       alert('You need a key to get into this room');
       this.router.navigate(['/locked']);
     }
+
     return this.status;
   }
 }

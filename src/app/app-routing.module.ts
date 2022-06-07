@@ -11,24 +11,41 @@ import { AuthGuard } from './auth.guard';
 import { LockedDoorComponent } from './locked-door/locked-door.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/living', pathMatch: 'full' },
+  { path: ' ', redirectTo: '/living', pathMatch: 'full' },
   { path: 'living', component: LivingAreaComponent },
-  { path: 'kitchen', component: KitchenComponent, canActivate: [AuthGuard] },
+  {
+    path: 'kitchen',
+    component: KitchenComponent,
+    canActivate: [AuthGuard],
+    data: { token: 'kitchen' },
+  },
   {
     path: 'bathroom1',
     component: Bathroom1Component,
     canActivate: [AuthGuard],
+    data: { token: 'bathroom1' },
   },
   {
     path: 'bathroom2',
     component: Bathroom2Component,
     canActivate: [AuthGuard],
+    data: { token: 'bathroom2' },
   },
-  { path: 'bedroom1', component: Bedroom1Component, canActivate: [AuthGuard] },
-  { path: 'bedroom2', component: Bedroom2Component, canActivate: [AuthGuard] },
+  {
+    path: 'bedroom1',
+    component: Bedroom1Component,
+    canActivate: [AuthGuard],
+    data: { token: 'bedroom1' },
+  },
+  {
+    path: 'bedroom2',
+    component: Bedroom2Component,
+    canActivate: [AuthGuard],
+    data: { token: 'bedroom2' },
+  },
   { path: 'locked', component: LockedDoorComponent },
 
-  { path: '**', redirectTo: 'living' },
+  { path: '**', redirectTo: '/living' },
 ];
 @NgModule({
   declarations: [],
