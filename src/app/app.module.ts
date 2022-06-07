@@ -12,6 +12,8 @@ import { Bedroom1Component } from './bedroom1/bedroom1.component';
 import { Bedroom2Component } from './bedroom2/bedroom2.component';
 import { Bathroom1Component } from './bathroom1/bathroom1.component';
 import { Bathroom2Component } from './bathroom2/bathroom2.component';
+import { LockedDoorComponent } from './locked-door/locked-door.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { Bathroom2Component } from './bathroom2/bathroom2.component';
     Bedroom2Component,
     Bathroom1Component,
     Bathroom2Component,
+    LockedDoorComponent,
+    UserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

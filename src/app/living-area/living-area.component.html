@@ -1,1 +1,5 @@
-<div class="container"></div>
+<div class="container" [ngStyle]="{ 'background-color': color }">
+  <button [disabled]="isButtonClicked" class="button" (click)="buttonClick()">
+    a key for kitchen
+  </button>
+</div>

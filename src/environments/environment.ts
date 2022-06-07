@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  kitchenRoomColor: '#ff0088',
+  livingRoomColor: 'rgba(230, 223, 223, 0.913)',
+  kitchenRoomColor: 'rgb(238, 238, 181)',
+  bath1Color: 'rgb(215, 148, 148)',
+  bath2Color: 'rgb(130, 163, 198)',
+  bed1Color: 'rgb(161, 97, 167)',
+  bed2Color: 'rgb(129, 153, 125)',
 };
 
 /*
