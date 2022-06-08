@@ -1,5 +1,12 @@
 <div class="container" [ngStyle]="{ 'background-color': color }">
-  <button [disabled]="isButtonClicked" class="button" (click)="buttonClick()">
+  <button
+    [disabled]="isButtonClicked"
+    class="button"
+    #button
+    (click)="buttonClick()"
+  >
     bed1
   </button>
 </div>
+
+{{ css }}

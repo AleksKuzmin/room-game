@@ -16,7 +16,6 @@ import { UtilityService } from './utility.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  status = false;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -33,12 +32,12 @@ export class AuthGuard implements CanActivate {
     const currentToken = _route.data['token'];
 
     if (this.authService.verifyToken(currentToken)) {
-      this.status = true;
+      return true;
     } else {
       alert('You need a key to get into this room');
-      this.router.navigate(['/locked']);
-    }
 
-    return this.status;
+      this.router.navigate(['/locked']);
+      return false;
+    }
   }
 }

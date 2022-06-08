@@ -1,4 +1,9 @@
+.container {
+  position: relative;
+}
+
 .bar {
+  position: absolute;
   background: rgb(52, 147, 204);
   background: linear-gradient(
     90deg,
@@ -11,4 +16,13 @@
   width: 400px;
   height: 30px;
   border: 3px solid grey;
+}
+
+.indicator {
+  position: absolute;
+  top: -7px;
+  width: 15px;
+  height: 50px;
+  background-color: rgb(74, 203, 74);
+  border-radius: 5px;
 }

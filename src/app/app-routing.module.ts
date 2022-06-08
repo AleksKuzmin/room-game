@@ -11,7 +11,7 @@ import { AuthGuard } from './auth.guard';
 import { LockedDoorComponent } from './locked-door/locked-door.component';
 
 const routes: Routes = [
-  { path: ' ', redirectTo: '/living', pathMatch: 'full' },
+  // { path: '', redirectTo: '/living', pathMatch: 'full' },
   { path: 'living', component: LivingAreaComponent },
   {
     path: 'kitchen',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class UtilityService {
   private bath2Color = environment.bath2Color;
   private bed1Color = environment.bed1Color;
   private bed2Color = environment.bed2Color;
-  lockColor!: Observable<string>;
+  lockColor!: string;
   colors = [
     this.livingRoomColor,
     this.kitchenRoomColor,
@@ -42,7 +42,7 @@ export class UtilityService {
   lockedDoorColor(room: string): any {
     for (let [key, color] of Object.entries(this.colorsObj)) {
       if (room === key) {
-        this.lockColor = of(color);
+        this.lockColor = color;
         console.log(this.lockColor + 'from utility');
       }
     }

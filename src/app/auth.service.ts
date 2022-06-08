@@ -10,11 +10,10 @@ export class AuthService {
   constructor(private utilityService: UtilityService) {}
 
   verifyToken(currentToken: string): any {
+    this.utilityService.lockedDoorColor(currentToken);
     for (let token of this.userTokens) {
       if (token === currentToken) return true;
     }
-    this.utilityService.lockedDoorColor(currentToken);
-    console.log(currentToken + 'from auth');
 
     return false;
   }
