@@ -10,7 +10,7 @@ import { UtilityService } from '../utility.service';
 })
 export class Bedroom2Component implements OnInit {
   public color: string = environment.bed2Color;
-  private token: string = 'bathroom2';
+  private token: string = environment.tokenBs2;
   public isButtonClicked: boolean = false;
   public alerts: string[] = [];
   constructor(

@@ -1,34 +1,34 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CalculationService {
-  // private btnXSubject: Subject<number> = new Subject<number>();
-  // private btnYSubject: Subject<number> = new Subject<number>();
-  // private btnX$: Observable<number> = this.btnXSubject.asObservable();
-  // private btnY$: Observable<number> = this.btnYSubject.asObservable();
-  buttonY!: number;
-  buttonX!: number;
-  mouseY!: number;
-  mouseX!: number;
-  // calculation() {
-  //   if (this.css < 0) {
-  //     this.css = 0;
-  //   }
-  //   if (this.css > 400) {
-  //     this.css = 400;
-  //   }
-  // }
+  // private mouseXSubject: Subject<number> = new Subject<number>();
+  // private mouseYSubject: Subject<number> = new Subject<number>();
+  private css!: number;
+  private buttonY!: number;
+  private buttonX!: number;
+  private mouseY!: number;
+  private mouseX!: number;
+  calculation() {
+    if (this.css < 0) {
+      this.css = 0;
+    }
+    if (this.css > 400) {
+      this.css = 400;
+    }
+  }
   constructor() {}
-
-  setBtnCrdnt(x: number, y: number, mouseX: number, mouseY: number) {
-    this.buttonX = x;
-    this.buttonY = y;
+  setMouseCrdnt(mouseX: number, mouseY: number) {
     this.mouseX = mouseX;
     this.mouseY = mouseY;
-    console.log(x, y, mouseX, mouseY);
+    console.log('mouse', mouseX, mouseY);
+  }
+  setBtnCrdnt(x: number, y: number) {
+    this.buttonX = x;
+    this.buttonY = y;
   }
   // get btnX(): Observable<number> {
   //   console.log(this.btnX$);
@@ -37,32 +37,16 @@ export class CalculationService {
   // get btnY(): Observable<number> {
   //   return this.btnY$;
   // }
-  // indicateBar() {
-  //   let counterX: number = this.buttonX - this.mouseX;
-  //   let counterY: number = this.mouseY - this.buttonY;
+  indicateBar() {
+    let counterX: number = this.buttonX - this.mouseX;
+    let counterY: number = this.mouseY - this.buttonY;
+    console.log('hello indicateBar');
+    // if (v < this.buttonX + 200 || v > this.buttonX) {
+    //   this.css = v / 2 + 400;
+    //   this.calculation();
 
-  //   of(counterX)
-  //     .pipe(
-  //       map((v) => {
-  //         if (v < this.buttonX + 200 || v > this.buttonX) {
-  //           this.css = v / 2 + 400;
-  //           this.calculation();
-  //           this._barService.setBarCss(this.css);
-  //         }
-  //       })
-  //     )
-  //     .subscribe();
-
-  //   of(counterY)
-  //     .pipe(
-  //       map((v) => {
-  //         if (v < 200 - this.buttonY || v === this.buttonY) {
-  //           this.css = 370 - v * 2;
-  //           this.calculation();
-  //           this._barService.setBarCss(this.css);
-  //         }
-  //       })
-  //     )
-  //     .subscribe();
-  // }
+    // if (v < 200 - this.buttonY || v === this.buttonY) {
+    //   this.css = 370 - v * 2;
+    //   this.calculation();
+  }
 }

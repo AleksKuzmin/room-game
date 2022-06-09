@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -16,22 +17,21 @@ import { UtilityService } from '../utility.service';
   templateUrl: './bedroom1.component.html',
   styleUrls: ['./bedroom1.component.css'],
 })
-export class Bedroom1Component implements OnInit, AfterViewInit {
+export class Bedroom1Component
+  implements OnInit, AfterViewInit, AfterViewChecked
+{
   @ViewChild('button', { static: false }) public button?: ElementRef;
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e: any): any {
     const obj = e;
-
     const { pageX: pageX, pageY: pageY } = obj;
-    this.mouseX = pageX;
-    this.mouseY = pageY;
+    this._calculationService.setMouseCrdnt(pageX, pageY);
   }
-  private mouseX!: number;
-  private mouseY!: number;
+
   private buttonX!: number;
   private buttonY!: number;
   public color: string = environment.bed1Color;
-  private token: string = 'bathroom1';
+  private token: string = environment.tokenBa1;
   public isButtonClicked: boolean = false;
   private alerts: string[] = [];
   constructor(
@@ -52,23 +52,23 @@ export class Bedroom1Component implements OnInit, AfterViewInit {
 
     this.isButtonClicked = true;
   }
-
+  getCss() {
+    this._calculationService.indicateBar();
+  }
   getCoordinates() {
     const obj = this.button?.nativeElement.getBoundingClientRect();
     const { bottom: bottom, right: right } = obj;
-    this.buttonY = +bottom / 2;
-    this.buttonX = +right / 2;
-    this._calculationService.setBtnCrdnt(
-      this.buttonX,
-      this.buttonY,
-      this.mouseX,
-      this.mouseY
-    );
+    this.buttonY = +bottom - 20;
+    this.buttonX = +right - 20;
+    this._calculationService.setBtnCrdnt(this.buttonX, this.buttonY);
   }
   ngOnInit(): void {
     this.getAlerts();
   }
   ngAfterViewInit(): void {
     this.getCoordinates();
+  }
+  ngAfterViewChecked(): void {
+    this.getCss();
   }
 }

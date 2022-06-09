@@ -10,6 +10,11 @@ export const environment = {
   bath2Color: 'rgb(130, 163, 198)',
   bed1Color: 'rgb(161, 97, 167)',
   bed2Color: 'rgb(129, 153, 125)',
+  tokenB1: 'bedroom1',
+  tokenB2: 'bedroom2',
+  tokenBa1: 'bathroom1',
+  tokenBs2: 'bathroom2',
+  tokenKit: 'kitchen',
 };
 
 /*

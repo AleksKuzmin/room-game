@@ -11,7 +11,7 @@ import { UtilityService } from '../utility.service';
 export class Bathroom1Component implements OnInit {
   public color: string = environment.bath1Color;
 
-  token: string = 'kitchen';
+  token: string = environment.tokenKit;
   isButtonClicked: boolean = false;
   alerts: string[] = [];
   constructor(

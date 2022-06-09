@@ -9,10 +9,10 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./kitchen.component.css'],
 })
 export class KitchenComponent implements OnInit {
-  color: string = environment.kitchenRoomColor;
-  token: string = 'bedroom2';
-  isButtonClicked: boolean = false;
-  alerts: string[] = [];
+  public color: string = environment.kitchenRoomColor;
+  private token: string = environment.tokenB2;
+  public isButtonClicked: boolean = false;
+  private alerts: string[] = [];
   constructor(
     private _utilityService: UtilityService,
     private _authService: AuthService
