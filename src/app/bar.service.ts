@@ -1,40 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BarService {
-  private _css!: number;
+  private cssSubject: Subject<number> = new Subject<number>();
+  private css$: Observable<number> = this.cssSubject.asObservable();
+
   constructor() {}
 
-  getBarCss(css: number): void {
-    this._css = css;
-    console.log('service', this._css);
+  setBarCss(css: number): void {
+    this.cssSubject.next(css);
   }
   get css(): Observable<number> {
-    return of(this._css);
+    return this.css$;
   }
 }
-
-// private _css: BehaviorSubject<any> = new BehaviorSubject<number>(
-//   this._css
-// ); //
-// public $_css: Observable<number>;
-// constructor() {
-//   this.$_css = this._css.asObservable();
-// }
-// getBarCss(css: number): void {
-//   // let obs = of(css);
-//   // obs.subscribe({
-//   //   next: (v) => {
-//   //     this.css = v;
-//   //     console.log(this.css);
-//   //   },
-//   // });
-//   this._css = css;
-//   // console.log('service', this._css);
-// }
-// get css(): Observable<number> {
-//   return of(this._css);
-// }

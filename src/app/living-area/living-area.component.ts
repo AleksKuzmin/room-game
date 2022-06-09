@@ -8,7 +8,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { map, of, tap } from 'rxjs';
+import { map, of } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { BarService } from '../bar.service';
 import { UtilityService } from '../utility.service';
@@ -30,15 +30,15 @@ export class LivingAreaComponent
     this.mouseX = pageX;
     this.mouseY = pageY;
   }
-  css: number = 0;
-  mouseX!: number;
-  mouseY!: number;
-  buttonX!: number;
-  buttonY!: number;
-  color!: string;
-  token: string = 'bedroom1';
-  isButtonClicked: boolean = false;
-  alerts: string[] = [];
+  public css: number = 0;
+  private mouseX!: number;
+  private mouseY!: number;
+  private buttonX!: number;
+  private buttonY!: number;
+  public color!: string;
+  private token: string = 'bedroom1';
+  public isButtonClicked: boolean = false;
+  private alerts: string[] = [];
   constructor(
     private _utilityService: UtilityService,
     private _authService: AuthService,
@@ -66,36 +66,37 @@ export class LivingAreaComponent
     this.getAlerts();
   }
   calculation() {
-    if (this.css >= 100) {
-      this.css = 100;
-    }
     if (this.css < 0) {
       this.css = 0;
     }
+    if (this.css > 400) {
+      this.css = 400;
+    }
   }
+
   indicateBar() {
-    let counterX: number = this.mouseX - this.buttonX;
+    let counterX: number = this.buttonX - this.mouseX;
     let counterY: number = this.mouseY - this.buttonY;
 
-    let barObservableX = of(counterX)
+    of(counterX)
       .pipe(
         map((v) => {
-          if (v < 224 || v > 24) {
-            this.css = v / 2;
+          if (v < this.buttonX + 200 || v > this.buttonX) {
+            this.css = v / 2 + 400;
             this.calculation();
-            this._barService.getBarCss(this.css);
-            // console.log('living area', this.css);
+            this._barService.setBarCss(this.css);
           }
         })
       )
       .subscribe();
 
-    let barObservableY = of(counterY)
+    of(counterY)
       .pipe(
         map((v) => {
-          if (v < 224 || v > 24) {
-            this.css = v / 2;
+          if (v < 200 - this.buttonY || v === this.buttonY) {
+            this.css = 370 - v * 2;
             this.calculation();
+            this._barService.setBarCss(this.css);
           }
         })
       )
@@ -110,7 +111,6 @@ export class LivingAreaComponent
   }
   ngAfterViewInit(): void {
     this.getCoordinates();
-    this.cd.detectChanges();
   }
   ngAfterViewChecked(): void {
     this.indicateBar();

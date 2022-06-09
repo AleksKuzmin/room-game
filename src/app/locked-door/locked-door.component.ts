@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+
 import { UtilityService } from '../utility.service';
 
 @Component({
@@ -8,23 +9,21 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./locked-door.component.css'],
 })
 export class LockedDoorComponent implements OnInit, OnDestroy {
+  private subscription!: Subscription;
+
   color!: string;
-  // subscription!: Subscription;
+
   constructor(private utilityService: UtilityService) {}
   changeColor() {
-    // this.subscription = this.utilityService.lockColor?.subscribe((res) => {
-    //   this.color = res;
-    //   console.log(this.color);
-    // });
-    this.color = this.utilityService.lockColor;
+    this.subscription = this.utilityService.roomColor.subscribe((v) => {
+      this.color = v;
+    });
   }
 
   ngOnInit(): void {
     this.changeColor();
   }
   ngOnDestroy(): void {
-    // if (this.subscription != null) {
-    //   this.subscription?.unsubscribe();
-    // }
+    this.subscription.unsubscribe();
   }
 }

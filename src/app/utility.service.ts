@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,7 +12,9 @@ export class UtilityService {
   private bath2Color = environment.bath2Color;
   private bed1Color = environment.bed1Color;
   private bed2Color = environment.bed2Color;
-  lockColor!: string;
+  private roomColorSubject: BehaviorSubject<string> =
+    new BehaviorSubject<string>('black');
+  private roomColor$: Observable<string> = this.roomColorSubject.asObservable();
   colors = [
     this.livingRoomColor,
     this.kitchenRoomColor,
@@ -38,13 +40,23 @@ export class UtilityService {
     'KiKi do you love me… ahh now that song is stuck in my head',
   ];
 
-  tokens = ['kitchen', 'bedroom1', 'bedroom2', 'bathroom1', 'bathroom2'];
-  lockedDoorColor(room: string): any {
+  private tokens = [
+    'kitchen',
+    'bedroom1',
+    'bedroom2',
+    'bathroom1',
+    'bathroom2',
+  ];
+
+  setLockedDoorColor(room: string): any {
     for (let [key, color] of Object.entries(this.colorsObj)) {
       if (room === key) {
-        this.lockColor = color;
-        console.log(this.lockColor + 'from utility');
+        this.roomColorSubject.next(color);
       }
     }
+  }
+
+  get roomColor(): Observable<string> {
+    return this.roomColor$;
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
   <div class="bar"></div>
-  <div class="indicator" [ngStyle]="{ right: css }"></div>
+  <div class="indicator" [ngStyle]="{ left: css ? +css + 'px' : 0 }"></div>
   {{ css }}
 </div>

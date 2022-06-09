@@ -1,6 +1,5 @@
 .container {
   border: 3px solid black;
-
   width: 165px;
   display: grid;
   grid-template-columns: 75px 15px 75px;

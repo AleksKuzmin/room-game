@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { BarService } from '../bar.service';
 
 @Component({
@@ -6,18 +7,20 @@ import { BarService } from '../bar.service';
   templateUrl: './bar.component.html',
   styleUrls: ['./bar.component.css'],
 })
-export class BarComponent implements OnInit, AfterViewInit {
-  css!: any;
+export class BarComponent implements OnInit, OnDestroy {
+  private subscription!: Subscription;
+  public css!: number;
   constructor(private _barService: BarService) {}
   getCss() {
-    this.css = this._barService.css.subscribe((v) => {
-      console.log('bar', v);
+    this.subscription = this._barService.css.subscribe((v) => {
+      this.css = v;
     });
   }
   ngOnInit(): void {
     this.getCss();
   }
-  ngAfterViewInit(): void {
-    this.getCss();
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

@@ -8,7 +8,7 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./bathroom1.component.css'],
 })
 export class Bathroom1Component implements OnInit {
-  color!: string;
+  public color!: string;
   token: string = 'kitchen';
   isButtonClicked: boolean = false;
   alerts: string[] = [];
