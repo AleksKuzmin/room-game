@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 export class BarService {
   private cssSubject: Subject<number> = new Subject<number>();
   private css$: Observable<number> = this.cssSubject.asObservable();
-  private _css!: number;
+
   constructor() {}
 
   setBarCss(css: number): void {

@@ -48,7 +48,7 @@ export class LivingAreaComponent
     private cd: ChangeDetectorRef
   ) {}
 
-  getAlerts() {
+  getKeyAlerts() {
     this.alerts = this._utilityService.keyAlerts;
   }
   random_alert() {
@@ -59,10 +59,13 @@ export class LivingAreaComponent
     this._authService.userTokens.push(this.token);
     this.isButtonClicked = true;
   }
-
-  ngOnInit(): void {
-    this.getAlerts();
+  getCoordinates() {
+    const obj = this.button?.nativeElement.getBoundingClientRect();
+    const { bottom: bottom, right: right } = obj;
+    this.buttonY = +bottom / 2;
+    this.buttonX = +right / 2;
   }
+
   calculation() {
     if (this.css < 0) {
       this.css = 0;
@@ -101,11 +104,8 @@ export class LivingAreaComponent
       .subscribe();
   }
 
-  getCoordinates() {
-    const obj = this.button?.nativeElement.getBoundingClientRect();
-    const { bottom: bottom, right: right } = obj;
-    this.buttonY = +bottom / 2;
-    this.buttonX = +right / 2;
+  ngOnInit(): void {
+    this.getKeyAlerts();
   }
   ngAfterViewInit(): void {
     this.getCoordinates();

@@ -1,6 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
+import { CalculationService } from '../calculation.service';
 import { UtilityService } from '../utility.service';
 
 @Component({
@@ -8,14 +16,28 @@ import { UtilityService } from '../utility.service';
   templateUrl: './bedroom1.component.html',
   styleUrls: ['./bedroom1.component.css'],
 })
-export class Bedroom1Component implements OnInit {
-  color: string = environment.bed1Color;
-  token: string = 'bathroom1';
-  isButtonClicked: boolean = false;
-  alerts: string[] = [];
+export class Bedroom1Component implements OnInit, AfterViewInit {
+  @ViewChild('button', { static: false }) public button?: ElementRef;
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e: any): any {
+    const obj = e;
+
+    const { pageX: pageX, pageY: pageY } = obj;
+    this.mouseX = pageX;
+    this.mouseY = pageY;
+  }
+  private mouseX!: number;
+  private mouseY!: number;
+  private buttonX!: number;
+  private buttonY!: number;
+  public color: string = environment.bed1Color;
+  private token: string = 'bathroom1';
+  public isButtonClicked: boolean = false;
+  private alerts: string[] = [];
   constructor(
     private _utilityService: UtilityService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _calculationService: CalculationService
   ) {}
 
   getAlerts() {
@@ -30,7 +52,23 @@ export class Bedroom1Component implements OnInit {
 
     this.isButtonClicked = true;
   }
+
+  getCoordinates() {
+    const obj = this.button?.nativeElement.getBoundingClientRect();
+    const { bottom: bottom, right: right } = obj;
+    this.buttonY = +bottom / 2;
+    this.buttonX = +right / 2;
+    this._calculationService.setBtnCrdnt(
+      this.buttonX,
+      this.buttonY,
+      this.mouseX,
+      this.mouseY
+    );
+  }
   ngOnInit(): void {
     this.getAlerts();
+  }
+  ngAfterViewInit(): void {
+    this.getCoordinates();
   }
 }

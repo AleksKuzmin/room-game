@@ -15,14 +15,7 @@ export class UtilityService {
   private roomColorSubject: BehaviorSubject<string> =
     new BehaviorSubject<string>('black');
   private roomColor$: Observable<string> = this.roomColorSubject.asObservable();
-  colors = [
-    this.livingRoomColor,
-    this.kitchenRoomColor,
-    this.bath1Color,
-    this.bath2Color,
-    this.bed1Color,
-    this.bed2Color,
-  ];
+
   colorsObj = {
     living: this.livingRoomColor,
     kitchen: this.kitchenRoomColor,
@@ -38,14 +31,6 @@ export class UtilityService {
     ' Great, I needed one of these for my piano!',
     'Why would somebody leave that there?',
     'KiKi do you love me… ahh now that song is stuck in my head',
-  ];
-
-  private tokens = [
-    'kitchen',
-    'bedroom1',
-    'bedroom2',
-    'bathroom1',
-    'bathroom2',
   ];
 
   setLockedDoorColor(room: string): any {
