@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { UtilityService } from '../utility.service';
 
@@ -8,7 +9,7 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./kitchen.component.css'],
 })
 export class KitchenComponent implements OnInit {
-  color!: string;
+  color: string = environment.kitchenRoomColor;
   token: string = 'bedroom2';
   isButtonClicked: boolean = false;
   alerts: string[] = [];
@@ -17,9 +18,6 @@ export class KitchenComponent implements OnInit {
     private _authService: AuthService
   ) {}
 
-  getColors() {
-    this.color = this._utilityService.colors[1];
-  }
   getAlerts() {
     this.alerts = this._utilityService.keyAlerts;
   }
@@ -33,7 +31,6 @@ export class KitchenComponent implements OnInit {
     this.isButtonClicked = true;
   }
   ngOnInit(): void {
-    this.getColors();
     this.getAlerts();
   }
 }

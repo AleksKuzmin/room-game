@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { environment } from 'src/environments/environment';
+
 import { UtilityService } from '../utility.service';
 
 @Component({
@@ -8,15 +9,9 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./bathroom2.component.css'],
 })
 export class Bathroom2Component implements OnInit {
-  color!: string;
+  color: string = environment.bath2Color;
 
   constructor(private _utilityService: UtilityService) {}
 
-  getColors() {
-    this.color = this._utilityService.colors[3];
-  }
-
-  ngOnInit(): void {
-    this.getColors();
-  }
+  ngOnInit(): void {}
 }

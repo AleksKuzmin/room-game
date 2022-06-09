@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { UtilityService } from '../utility.service';
 
@@ -8,7 +9,8 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./bathroom1.component.css'],
 })
 export class Bathroom1Component implements OnInit {
-  public color!: string;
+  public color: string = environment.bath1Color;
+
   token: string = 'kitchen';
   isButtonClicked: boolean = false;
   alerts: string[] = [];
@@ -17,9 +19,6 @@ export class Bathroom1Component implements OnInit {
     private _authService: AuthService
   ) {}
 
-  getColors() {
-    this.color = this._utilityService.colors[2];
-  }
   getAlerts() {
     this.alerts = this._utilityService.keyAlerts;
   }
@@ -33,7 +32,6 @@ export class Bathroom1Component implements OnInit {
     this.isButtonClicked = true;
   }
   ngOnInit(): void {
-    this.getColors();
     this.getAlerts();
   }
 }

@@ -9,6 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { map, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { BarService } from '../bar.service';
 import { UtilityService } from '../utility.service';
@@ -35,7 +36,8 @@ export class LivingAreaComponent
   private mouseY!: number;
   private buttonX!: number;
   private buttonY!: number;
-  public color!: string;
+  public color: string = environment.livingRoomColor;
+
   private token: string = 'bedroom1';
   public isButtonClicked: boolean = false;
   private alerts: string[] = [];
@@ -46,9 +48,6 @@ export class LivingAreaComponent
     private cd: ChangeDetectorRef
   ) {}
 
-  getColors() {
-    this.color = this._utilityService.colors[0];
-  }
   getAlerts() {
     this.alerts = this._utilityService.keyAlerts;
   }
@@ -62,7 +61,6 @@ export class LivingAreaComponent
   }
 
   ngOnInit(): void {
-    this.getColors();
     this.getAlerts();
   }
   calculation() {
