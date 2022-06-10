@@ -1,6 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import {
+  ActivationEnd,
+  NavigationEnd,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Action } from 'rxjs/internal/scheduler/Action';
 import { CalculationService } from '../calculation.service';
 
 @Component({
@@ -45,6 +51,12 @@ export class BarComponent implements OnInit, OnDestroy {
       if (event instanceof NavigationEnd) {
         this.canShowIndicator = !(event.url === '/bathroom2');
       }
+    });
+
+    this.router.events.subscribe((event) => {
+      // if (event instanceof ) {
+      console.log(event);
+      // }
     });
   }
 
