@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="canShow">
   <div class="bar"></div>
   <div class="indicator" [ngStyle]="{ left: css ? +css + 'px' : 0 }"></div>
   {{ css }}

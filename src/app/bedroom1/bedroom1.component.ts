@@ -17,9 +17,7 @@ import { UtilityService } from '../utility.service';
   templateUrl: './bedroom1.component.html',
   styleUrls: ['./bedroom1.component.css'],
 })
-export class Bedroom1Component
-  implements OnInit, AfterViewInit, AfterViewChecked
-{
+export class Bedroom1Component implements OnInit, AfterViewInit {
   @ViewChild('button', { static: false }) public button?: ElementRef;
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e: any): any {
@@ -27,7 +25,7 @@ export class Bedroom1Component
     const { pageX: pageX, pageY: pageY } = obj;
     this._calculationService.setMouseCrdnt(pageX, pageY);
   }
-
+  css!: number;
   private buttonX!: number;
   private buttonY!: number;
   public color: string = environment.bed1Color;
@@ -49,12 +47,9 @@ export class Bedroom1Component
   buttonClick() {
     this.random_alert();
     this._authService.userTokens.push(this.token);
-
     this.isButtonClicked = true;
   }
-  getCss() {
-    this._calculationService.indicateBar();
-  }
+
   getCoordinates() {
     const obj = this.button?.nativeElement.getBoundingClientRect();
     const { bottom: bottom, right: right } = obj;
@@ -67,8 +62,5 @@ export class Bedroom1Component
   }
   ngAfterViewInit(): void {
     this.getCoordinates();
-  }
-  ngAfterViewChecked(): void {
-    this.getCss();
   }
 }
