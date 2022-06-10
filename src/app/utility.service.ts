@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -33,7 +33,7 @@ export class UtilityService {
     'KiKi do you love me… ahh now that song is stuck in my head',
   ];
 
-  setLockedDoorColor(room: string): any {
+  setLockedDoorColor(room: string) {
     for (let [key, color] of Object.entries(this.colorsObj)) {
       if (room === key) {
         this.roomColorSubject.next(color);

@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(private utilityService: UtilityService) {}
 
-  verifyToken(currentToken: string): any {
+  verifyToken(currentToken: string): boolean {
     this.utilityService.setLockedDoorColor(currentToken);
     for (let token of this.userTokens) {
       if (token === currentToken) return true;

@@ -8,7 +8,6 @@ import {
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
-
 import { AuthService } from './auth.service';
 import { UtilityService } from './utility.service';
 
@@ -16,11 +15,7 @@ import { UtilityService } from './utility.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private utilityService: UtilityService
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
   canActivate(
     _route: ActivatedRouteSnapshot,
     _state: RouterStateSnapshot

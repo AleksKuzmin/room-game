@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { map, of } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 

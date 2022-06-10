@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-
 import { UtilityService } from '../utility.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { UtilityService } from '../utility.service';
 export class LockedDoorComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
 
-  color!: string;
+  public color!: string;
 
   constructor(private utilityService: UtilityService) {}
   changeColor() {
