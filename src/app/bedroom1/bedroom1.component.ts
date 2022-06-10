@@ -1,5 +1,4 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
   ElementRef,
@@ -25,13 +24,14 @@ export class Bedroom1Component implements OnInit, AfterViewInit {
     const { pageX: pageX, pageY: pageY } = obj;
     this._calculationService.setMouseCrdnt(pageX, pageY);
   }
-  css!: number;
+
   private buttonX!: number;
   private buttonY!: number;
   public color: string = environment.bed1Color;
   private token: string = environment.tokenBa1;
   public isButtonClicked: boolean = false;
   private alerts: string[] = [];
+
   constructor(
     private _utilityService: UtilityService,
     private _authService: AuthService,
