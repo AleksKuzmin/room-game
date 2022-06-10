@@ -1,6 +1,6 @@
 <div class="container" [ngStyle]="{ 'background-color': color }">
   <button
-    [disabled]="isButtonClicked"
+    [hidden]="isButtonClicked"
     class="button"
     #button
     (click)="buttonClick()"

@@ -4,6 +4,7 @@ import {
   ElementRef,
   HostListener,
   OnInit,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 
@@ -19,7 +20,8 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./living-area.component.css'],
 })
 export class LivingAreaComponent implements OnInit, AfterViewInit {
-  @ViewChild('button', { static: false }) public button?: ElementRef;
+  @ViewChild('button', { static: false })
+  public button!: ElementRef;
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e: any): any {
     const obj = e;
@@ -30,6 +32,7 @@ export class LivingAreaComponent implements OnInit, AfterViewInit {
   public css: number = 0;
   private buttonX!: number;
   private buttonY!: number;
+
   public color: string = environment.livingRoomColor;
   private token: string = 'bedroom1';
   public isButtonClicked: boolean = false;
@@ -37,7 +40,8 @@ export class LivingAreaComponent implements OnInit, AfterViewInit {
   constructor(
     private _utilityService: UtilityService,
     private _authService: AuthService,
-    private _calculationService: CalculationService
+    private _calculationService: CalculationService,
+    private _renderer: Renderer2
   ) {}
 
   getKeyAlerts() {
@@ -61,6 +65,9 @@ export class LivingAreaComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getKeyAlerts();
+    if (this._authService.userTokens.includes(this.token)) {
+      this.isButtonClicked = true;
+    }
   }
   ngAfterViewInit(): void {
     this.getCoordinates();

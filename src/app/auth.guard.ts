@@ -9,7 +9,6 @@ import {
 
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
-import { UtilityService } from './utility.service';
 
 @Injectable({
   providedIn: 'root',

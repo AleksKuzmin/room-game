@@ -59,6 +59,9 @@ export class Bedroom1Component implements OnInit, AfterViewInit {
   }
   ngOnInit(): void {
     this.getAlerts();
+    if (this._authService.userTokens.includes(this.token)) {
+      this.isButtonClicked = true;
+    }
   }
   ngAfterViewInit(): void {
     this.getCoordinates();
