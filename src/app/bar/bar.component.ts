@@ -35,6 +35,11 @@ export class BarComponent implements OnInit, OnDestroy {
         this.canShow = !(event.url === '/locked');
       }
     });
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.canShow = !(event.url === '/bathroom2');
+      }
+    });
   }
 
   ngOnDestroy(): void {
