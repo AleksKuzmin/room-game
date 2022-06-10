@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BarService } from '../bar.service';
 import { CalculationService } from '../calculation.service';
 
 @Component({
@@ -10,34 +9,23 @@ import { CalculationService } from '../calculation.service';
   styleUrls: ['./bar.component.css'],
 })
 export class BarComponent implements OnInit, OnDestroy {
-  // private subscription!: Subscription;
-  // public css!: number;
-  // constructor(private _barService: BarService) {}
-  // getCss() {
-  //   this.subscription = this._barService.css.subscribe((v) => {
-  //     this.css = v;
-  //   });
-  // }
-  // ngOnInit(): void {
-  //   this.getCss();
-  // }
+  private subscriptionX!: Subscription;
+  private subscriptionY!: Subscription;
+  public barCss!: number;
 
-  // ngOnDestroy(): void {
-  //   this.subscription.unsubscribe();
-  // }
-
-  private subscription!: Subscription;
-  public css!: number;
   public canShow: boolean = false;
   constructor(
-    private _barService: BarService,
     private _calcService: CalculationService,
     private router: Router
   ) {}
   getCss() {
-    this.subscription = this._calcService.css.subscribe((v) => {
-      this.css = v;
-      console.log(v);
+    this.subscriptionX = this._calcService.cssX.subscribe((v) => {
+      if (v === 0) this.barCss = 0;
+      if (v > 0) this.barCss = 400 - v * 2;
+    });
+    this.subscriptionY = this._calcService.cssY.subscribe((v) => {
+      if (v === 0) this.barCss = 0;
+      if (v > 0) this.barCss = 400 - v * 2;
     });
   }
   ngOnInit(): void {
@@ -45,12 +33,12 @@ export class BarComponent implements OnInit, OnDestroy {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.canShow = !(event.url === '/locked');
-        console.log(event);
       }
     });
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscriptionX.unsubscribe();
+    this.subscriptionY.unsubscribe();
   }
 }
