@@ -12,7 +12,8 @@ export class BarComponent implements OnInit, OnDestroy {
   private subscriptionX!: Subscription;
   private subscriptionY!: Subscription;
   public barCss!: number;
-
+  public canShowBath: boolean = false;
+  public canShowIndicator: boolean = false;
   public canShow: boolean = false;
   constructor(
     private _calcService: CalculationService,
@@ -37,7 +38,12 @@ export class BarComponent implements OnInit, OnDestroy {
     });
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.canShow = !(event.url === '/bathroom2');
+        this.canShowBath = !(event.url === '/bathroom2');
+      }
+    });
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.canShowIndicator = !(event.url === '/bathroom2');
       }
     });
   }
