@@ -53,8 +53,8 @@ export class Bedroom1Component implements OnInit, AfterViewInit {
   getCoordinates() {
     const obj = this.button?.nativeElement.getBoundingClientRect();
     const { bottom: bottom, right: right } = obj;
-    this.buttonY = +bottom - 20;
-    this.buttonX = +right - 20;
+    this.buttonY = +bottom;
+    this.buttonX = +right;
     this._calculationService.setBtnCrdnt(this.buttonX, this.buttonY);
   }
   ngOnInit(): void {

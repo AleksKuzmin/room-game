@@ -52,12 +52,6 @@ export class BarComponent implements OnInit, OnDestroy {
         this.canShowIndicator = !(event.url === '/bathroom2');
       }
     });
-
-    this.router.events.subscribe((event) => {
-      // if (event instanceof ) {
-      console.log(event);
-      // }
-    });
   }
 
   ngOnDestroy(): void {

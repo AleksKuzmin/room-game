@@ -40,8 +40,7 @@ export class LivingAreaComponent implements OnInit, AfterViewInit {
   constructor(
     private _utilityService: UtilityService,
     private _authService: AuthService,
-    private _calculationService: CalculationService,
-    private _renderer: Renderer2
+    private _calculationService: CalculationService
   ) {}
 
   getKeyAlerts() {
@@ -58,8 +57,9 @@ export class LivingAreaComponent implements OnInit, AfterViewInit {
   getCoordinates() {
     const obj = this.button?.nativeElement.getBoundingClientRect();
     const { bottom: bottom, right: right } = obj;
-    this.buttonY = +bottom - 20;
-    this.buttonX = +right - 20;
+    this.buttonY = +bottom;
+    this.buttonX = +right;
+
     this._calculationService.setBtnCrdnt(this.buttonX, this.buttonY);
   }
 
