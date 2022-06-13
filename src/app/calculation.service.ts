@@ -5,10 +5,8 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class CalculationService {
-  private xSubject: Subject<number> = new Subject<number>();
-  private cssX$: Observable<number> = this.xSubject.asObservable();
-  private ySubject: Subject<number> = new Subject<number>();
-  private cssY$: Observable<number> = this.ySubject.asObservable();
+  private hSubject: Subject<number> = new Subject<number>();
+  private cssH$: Observable<number> = this.hSubject.asObservable();
 
   private buttonY!: number;
   private buttonX!: number;
@@ -19,42 +17,23 @@ export class CalculationService {
   setMouseCrdnt(mouseX: number, mouseY: number) {
     this.mouseX = mouseX;
     this.mouseY = mouseY;
-
-    this.setX();
-    this.setY();
+    this.pifagorTheorem();
   }
   setBtnCrdnt(x: number, y: number) {
-    this.buttonX = x - 8;
-    this.buttonY = y - 28;
-    this.setX();
-    this.setY();
-    console.log(x, y);
+    this.buttonX = x;
+    this.buttonY = y;
   }
 
-  setX(): number {
-    let cssX: number = 0;
-    if (this.mouseX > 200) {
-      cssX = this.buttonX - this.mouseX;
-    }
-
-    this.xSubject.next(cssX);
-
-    return cssX;
-  }
-  setY(): number {
-    let cssY: number = 0;
-    if (200 < this.mouseY) cssY = this.buttonY - this.mouseY;
-
-    this.ySubject.next(cssY);
-
-    return cssY;
+  pifagorTheorem(): number {
+    let hypotenuse = Math.sqrt(
+      (this.buttonX - this.mouseX - 8) ** 2 +
+        (this.buttonY - this.mouseY - 28) ** 2
+    );
+    this.hSubject.next(hypotenuse);
+    return hypotenuse;
   }
 
-  get cssX(): Observable<number> {
-    return this.cssX$;
-  }
-
-  get cssY(): Observable<number> {
-    return this.cssY$;
+  get cssH(): Observable<number> {
+    return this.cssH$;
   }
 }

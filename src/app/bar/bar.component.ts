@@ -9,10 +9,9 @@ import { CalculationService } from '../calculation.service';
   styleUrls: ['./bar.component.css'],
 })
 export class BarComponent implements OnInit, OnDestroy {
-  private subscriptionX!: Subscription;
-  private subscriptionY!: Subscription;
-  public barCss!: number;
+  private subscription!: Subscription;
 
+  public barCss!: number;
   public canShowBath: boolean = false;
   public canShowIndicator: boolean = false;
   public canShow: boolean = false;
@@ -20,23 +19,10 @@ export class BarComponent implements OnInit, OnDestroy {
     private _calcService: CalculationService,
     private router: Router
   ) {}
-  getObservables() {
-    this.subscriptionX = this._calcService.cssX.subscribe((v) => {
-      if (v < 200 && v > 0) {
-        this.barCss = 400 - v * 2;
-      }
-      if (v > -200 && v < 0) {
-        this.barCss = 400 - Math.abs(v) * 2;
-      }
-    });
-
-    this.subscriptionY = this._calcService.cssY.subscribe((v) => {
-      if (v < 200 && v > 0) {
-        this.barCss = 400 - v * 2;
-      }
-      if (v < -200) {
-        this.barCss = 0;
-      }
+  getObservables(): any {
+    this.subscription = this._calcService.cssH.subscribe((v) => {
+      if (v > 200) this.barCss = 0;
+      if (v < 200) this.barCss = 400 - v * 2;
     });
   }
 
@@ -61,7 +47,6 @@ export class BarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptionX.unsubscribe();
-    this.subscriptionY.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
