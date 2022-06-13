@@ -1,10 +1,16 @@
 <div class="container" [ngStyle]="{ 'background-color': color }">
-  <button
+  <div
     [hidden]="isButtonClicked"
     class="button"
-    (click)="buttonClick()"
     #button
+    (click)="buttonClick()"
   >
-    bath1
-  </button>
+    <img
+      src="../assets/image.png"
+      alt="key"
+      width="40"
+      height="40"
+      class="img"
+    />
+  </div>
 </div>

@@ -1,12 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import {
-  ActivationEnd,
-  NavigationEnd,
-  NavigationStart,
-  Router,
-} from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Action } from 'rxjs/internal/scheduler/Action';
 import { CalculationService } from '../calculation.service';
 
 @Component({
@@ -18,6 +12,7 @@ export class BarComponent implements OnInit, OnDestroy {
   private subscriptionX!: Subscription;
   private subscriptionY!: Subscription;
   public barCss!: number;
+
   public canShowBath: boolean = false;
   public canShowIndicator: boolean = false;
   public canShow: boolean = false;
@@ -25,18 +20,29 @@ export class BarComponent implements OnInit, OnDestroy {
     private _calcService: CalculationService,
     private router: Router
   ) {}
-  getCss() {
+  getObservables() {
     this.subscriptionX = this._calcService.cssX.subscribe((v) => {
-      if (v === 0) this.barCss = 0;
-      if (v > 0) this.barCss = 400 - v * 2;
+      if (v < 200 && v > 0) {
+        this.barCss = 400 - v * 2;
+      }
+      if (v > -200 && v < 0) {
+        this.barCss = 400 - Math.abs(v) * 2;
+      }
     });
+
     this.subscriptionY = this._calcService.cssY.subscribe((v) => {
-      if (v === 0) this.barCss = 0;
-      if (v > 0) this.barCss = 400 - v * 2;
+      if (v < 200 && v > 0) {
+        this.barCss = 400 - v * 2;
+      }
+      if (v < -200) {
+        this.barCss = 0;
+      }
     });
   }
+
   ngOnInit(): void {
-    this.getCss();
+    this.getObservables();
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.canShow = !(event.url === '/locked');

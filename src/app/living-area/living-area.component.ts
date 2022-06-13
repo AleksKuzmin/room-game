@@ -4,7 +4,6 @@ import {
   ElementRef,
   HostListener,
   OnInit,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
 
@@ -25,14 +24,12 @@ export class LivingAreaComponent implements OnInit, AfterViewInit {
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e: any): any {
     const obj = e;
-
     const { pageX: pageX, pageY: pageY } = obj;
     this._calculationService.setMouseCrdnt(pageX, pageY);
   }
-  public css: number = 0;
+
   private buttonX!: number;
   private buttonY!: number;
-
   public color: string = environment.livingRoomColor;
   private token: string = 'bedroom1';
   public isButtonClicked: boolean = false;
@@ -57,8 +54,8 @@ export class LivingAreaComponent implements OnInit, AfterViewInit {
   getCoordinates() {
     const obj = this.button?.nativeElement.getBoundingClientRect();
     const { bottom: bottom, right: right } = obj;
-    this.buttonY = +bottom;
-    this.buttonX = +right;
+    this.buttonY = bottom;
+    this.buttonX = right;
 
     this._calculationService.setBtnCrdnt(this.buttonX, this.buttonY);
   }

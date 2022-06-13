@@ -19,27 +19,34 @@ export class CalculationService {
   setMouseCrdnt(mouseX: number, mouseY: number) {
     this.mouseX = mouseX;
     this.mouseY = mouseY;
+
     this.setX();
     this.setY();
   }
   setBtnCrdnt(x: number, y: number) {
-    this.buttonX = x;
-    this.buttonY = y;
+    this.buttonX = x - 8;
+    this.buttonY = y - 28;
     this.setX();
     this.setY();
+    console.log(x, y);
   }
 
   setX(): number {
     let cssX: number = 0;
-    if (this.mouseX < 200) cssX = this.mouseX - this.buttonX / 2;
+    if (this.mouseX > 200) {
+      cssX = this.buttonX - this.mouseX;
+    }
+
     this.xSubject.next(cssX);
+
     return cssX;
   }
   setY(): number {
     let cssY: number = 0;
-    if (this.mouseY < 200) cssY = this.mouseY - this.buttonY / 2;
+    if (200 < this.mouseY) cssY = this.buttonY - this.mouseY;
 
     this.ySubject.next(cssY);
+
     return cssY;
   }
 

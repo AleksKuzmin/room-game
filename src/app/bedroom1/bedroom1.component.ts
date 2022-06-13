@@ -22,7 +22,7 @@ export class Bedroom1Component implements OnInit, AfterViewInit {
   onMouseMove(e: any): any {
     const obj = e;
     const { pageX: pageX, pageY: pageY } = obj;
-    this._calculationService.setMouseCrdnt(pageX, pageY);
+    this._calculationService.setMouseCrdnt(+pageX, +pageY);
   }
 
   private buttonX!: number;

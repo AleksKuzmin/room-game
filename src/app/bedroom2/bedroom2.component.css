@@ -9,12 +9,19 @@
 }
 
 .button {
+  position: absolute;
   opacity: 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  left: 400px;
+  bottom: 300px;
 }
 
 .button:hover {
   opacity: 1;
+}
+
+.img {
+  border-radius: 50%;
 }
