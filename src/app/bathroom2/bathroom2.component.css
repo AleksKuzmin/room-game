@@ -7,3 +7,15 @@
   width: 1280px;
   height: 720px;
 }
+.floor {
+  position: absolute;
+  z-index: 0;
+  height: 145px;
+  width: 1280px;
+  bottom: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(130, 162, 197, 1) 0%,
+    rgba(97, 118, 140, 1) 100%
+  );
+}

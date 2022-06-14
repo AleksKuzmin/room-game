@@ -25,3 +25,15 @@
 .img {
   border-radius: 50%;
 }
+.floor {
+  position: absolute;
+  z-index: 0;
+  height: 145px;
+  width: 1280px;
+  bottom: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(129, 153, 125, 1) 0%,
+    rgba(88, 102, 86, 1) 100%
+  );
+}

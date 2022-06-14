@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  livingRoomColor: 'rgba(230, 223, 223, 0.913)',
+  livingRoomColor: '#e2e2e2',
   kitchenRoomColor: 'rgb(238, 238, 181)',
   bath1Color: 'rgb(215, 148, 148)',
   bath2Color: 'rgb(130, 163, 198)',
