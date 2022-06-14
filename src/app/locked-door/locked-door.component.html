@@ -1,1 +1,8 @@
 <div class="container" [ngStyle]="{ 'background-color': color }"></div>
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="bed1" class="bedroom1"></div>
+  <div *ngSwitchCase="bed2" class="bedroom2"></div>
+  <div *ngSwitchCase="bath1" class="bathroom1"></div>
+  <div *ngSwitchCase="bath2" class="bathroom2"></div>
+  <div *ngSwitchCase="kitchen" class="kitchen"></div>
+</div>

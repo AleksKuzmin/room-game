@@ -7,3 +7,63 @@
   width: 1280px;
   height: 720px;
 }
+.bedroom1 {
+  position: absolute;
+  z-index: 0;
+  height: 145px;
+  width: 1280px;
+  bottom: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(163, 99, 164, 1) 0%,
+    rgba(109, 91, 110, 1) 100%
+  );
+}
+.kitchen {
+  position: absolute;
+  z-index: 0;
+  height: 145px;
+  width: 1280px;
+  bottom: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(238, 238, 182, 1) 0%,
+    rgba(172, 172, 123, 1) 100%
+  );
+}
+.bedroom2 {
+  position: absolute;
+  z-index: 0;
+  height: 145px;
+  width: 1280px;
+  bottom: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(129, 153, 125, 1) 0%,
+    rgba(88, 102, 86, 1) 100%
+  );
+}
+.bathroom2 {
+  position: absolute;
+  z-index: 0;
+  height: 145px;
+  width: 1280px;
+  bottom: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(130, 162, 197, 1) 0%,
+    rgba(97, 118, 140, 1) 100%
+  );
+}
+.bathroom1 {
+  position: absolute;
+  z-index: 0;
+  height: 145px;
+  width: 1280px;
+  bottom: 0px;
+  background: linear-gradient(
+    0deg,
+    rgba(212, 147, 148, 1) 0%,
+    rgba(135, 93, 93, 1) 100%
+  );
+}
