@@ -26,8 +26,8 @@ export class CalculationService {
 
   pifagorTheorem(): number {
     let hypotenuse = Math.sqrt(
-      (this.buttonX - this.mouseX - 8) ** 2 +
-        (this.buttonY - this.mouseY - 28) ** 2
+      (this.buttonX - this.mouseX - 20) ** 2 +
+        (this.buttonY - this.mouseY - 20) ** 2
     );
     this.hSubject.next(hypotenuse);
     return hypotenuse;
