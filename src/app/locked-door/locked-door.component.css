@@ -7,6 +7,9 @@
   width: 1280px;
   height: 720px;
 }
+/* can use multiple classes with an html element. e.g. class="room bedroom1" */
+/* in the room class you specify common things and the bedroom1 class will only have background in it */
+/* Also all of these classes which are repeated between components can be moved to global css */
 .bedroom1 {
   position: absolute;
   z-index: 0;

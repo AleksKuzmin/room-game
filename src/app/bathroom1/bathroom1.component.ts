@@ -19,6 +19,7 @@ import { UtilityService } from '../utility.service';
 export class Bathroom1Component implements OnInit, AfterViewInit {
   @ViewChild('button', { static: false }) public button?: ElementRef;
   @HostListener('document:mousemove', ['$event'])
+  // I believe the same functionality should be achievable using css hover which is more performant
   onMouseMove(e: any): any {
     const obj = e;
     const { pageX: pageX, pageY: pageY } = obj;
@@ -31,6 +32,7 @@ export class Bathroom1Component implements OnInit, AfterViewInit {
   public isButtonClicked: boolean = false;
   private alerts: string[] = [];
   constructor(
+    // we don't practice using underscore for service names
     private _utilityService: UtilityService,
     private _authService: AuthService,
     private _calculationService: CalculationService

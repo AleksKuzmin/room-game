@@ -23,7 +23,7 @@ export class CalculationService {
     this.buttonX = x;
     this.buttonY = y;
   }
-
+// please give comments with each function because we have lint rules in place and your code commit will fail if you haven't provided comments
   pifagorTheorem(): number {
     let hypotenuse = Math.sqrt(
       (this.buttonX - this.mouseX - 20) ** 2 +

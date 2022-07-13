@@ -11,6 +11,7 @@ export class AuthService {
 
   verifyToken(currentToken: string): boolean {
     this.utilityService.setLockedDoorColor(currentToken);
+    // should use userTokens.find 
     for (let token of this.userTokens) {
       if (token === currentToken) return true;
     }

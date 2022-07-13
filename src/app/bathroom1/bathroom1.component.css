@@ -1,3 +1,4 @@
+/* I am sure the images must have been provided with space in their name, but best to name them without space e.g. bath_1.svg */
 .container {
   background-image: url("src/assets/bath 1.svg");
   background-repeat: no-repeat;
